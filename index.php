@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'shA75bf5VkGYzb2', 'db_contact_php') or die('connection failed');
+$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous@786', 'db_contact_php') or die('connection failed');
 
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
