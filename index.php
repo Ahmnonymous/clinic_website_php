@@ -1,6 +1,7 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous@786', 'db_contact_php') or die('connection failed');
+//$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous@786', 'db_contact_php') or die('connection failed');
+$conn = mysqli_connect('localhost', 'root', '', 'contact_db') or die('connection failed');
 
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -83,7 +84,7 @@ if (isset($_POST['submit'])) {
 
     <div class="content">
 
-        <h3 class="you">we take care of <span>you</span></h3>
+        <h3 class="you">we take care of you</h3>
 
         <p> At Ehsan Clinic, we are dedicated to providing comprehensive and personalized healthcare services to individuals and families. 
             With a team of skilled medical staff and a state-of-the-art facility, 
@@ -271,87 +272,61 @@ if (isset($_POST['submit'])) {
 <!-- camps section starts -->
 
 <section id="camps">
-<div class="carousel-line" >
-<!-- Full-width images with number and caption text -->
-<div class="carousel-container">
-  <div class="mySlides animate">
-    <img src="./image/camp-1.jpeg" alt="slide" />
-    <div class="number">1 / 5</div>
-    <div class="text">Lorem ipsum dolor sit amet consectetur</div>
-  </div>
 
-  <div class="mySlides animate">
-    <img src="./image/camp-2.jpeg" alt="slide" />
-    <div class="number">2 / 5</div>
-    <div class="text">amet consectetur</div>
-  </div>
+    <h1 class="heading"> FREE MEDICAL <span>CAMPS</span></h1>
 
-  <div class="mySlides animate">
-    <img src="./image/camp-3.jpeg" alt="slide" />
-    <div class="number">3 / 5</div>
-    <div class="text">Lorem ipsum dolor sit</div>
-  </div>
+    <div class="carousel-container">
 
-  <div class="mySlides animate">
-    <img src="./image/camp-4.jpeg" alt="slide" />
-    <div class="number">4 / 5</div>
-    <div class="text">Doloribus quo alias reprehenderit</div>
-  </div>
+        <div class="mySlides animate">
+            <img src="./image/camp1.jpg" alt="slide" />
+            <div class="number">1 / 6</div>
+            <div class="text">Chitral Valley, Ayun Village</div>
+        </div>
 
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="prevSlide()">&#10094;</a>
-  <a class="next" onclick="nextSlide()">&#10095;</a>
+        <div class="mySlides animate">
+            <img src="./image/camp2.jpg" alt="slide" />
+            <div class="number">2 / 6</div>
+            <div class="text">Mardan, Peshawar</div>
+        </div>
 
-  <!-- The dots/circles -->
-  <div class="dots-container">
-    <span class="dots" onclick="currentSlide(1)"></span>
-    <span class="dots" onclick="currentSlide(2)"></span>
-    <span class="dots" onclick="currentSlide(3)"></span>
-    <span class="dots" onclick="currentSlide(4)"></span>
-  </div>
-</div>
+        <div class="mySlides animate">
+            <img src="./image/camp3.jpg" alt="slide" />
+            <div class="number">3 / 6</div>
+            <div class="text">Charsadda Flood affected areas</div>
+        </div>
 
+        <div class="mySlides animate">
+            <img src="./image/camp4.jpg" alt="slide" />
+            <div class="number">4 / 6</div>
+            <div class="text">Charsadda remote Village Hassankhel</div>
+        </div>
 
-<div class="carousel-container">
-  <div class="mySlides animate">
-    <img src="./image/camp-1.jpeg" alt="slide" />
-    <div class="number">1 / 5</div>
-    <div class="text">Lorem ipsum dolor sit amet consectetur</div>
-  </div>
+        <div class="mySlides animate">
+            <img src="./image/camp5.jpg" alt="slide" />
+            <div class="number">5 / 6</div>
+            <div class="text">Covid-19 Paediatric vaccine campaign AEFI</div>
+        </div>
 
-  <div class="mySlides animate">
-    <img src="./image/camp-2.jpeg" alt="slide" />
-    <div class="number">2 / 5</div>
-    <div class="text">amet consectetur</div>
-  </div>
+        <div class="mySlides animate">
+            <img src="./image/camp6.jpg" alt="slide" />
+            <div class="number">6 / 6</div>
+            <div class="text">Covid-19 Paediatric vaccine campaign in schools</div>
+        </div>
 
-  <div class="mySlides animate">
-    <img src="./image/camp-3.jpeg" alt="slide" />
-    <div class="number">3 / 5</div>
-    <div class="text">Lorem ipsum dolor sit</div>
-  </div>
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="prevSlide()">&#10094;</a>
+        <a class="next" onclick="nextSlide()">&#10095;</a>
 
-  <div class="mySlides animate">
-    <img src="./image/camp-4.jpeg" alt="slide" />
-    <div class="number">4 / 5</div>
-    <div class="text">Doloribus quo alias reprehenderit</div>
-  </div>
-
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="prevSlide()">&#10094;</a>
-  <a class="next" onclick="nextSlide()">&#10095;</a>
-
-  <!-- The dots/circles -->
-  <div class="dots-container">
-    <span class="dots" onclick="currentSlide(1)"></span>
-    <span class="dots" onclick="currentSlide(2)"></span>
-    <span class="dots" onclick="currentSlide(3)"></span>
-    <span class="dots" onclick="currentSlide(4)"></span>
-  </div>
-</div>
-
-</div>
-
+        <!-- The dots/circles -->
+        <div class="dots-container">
+            <span class="dots" onclick="currentSlide(1)"></span>
+            <span class="dots" onclick="currentSlide(2)"></span>
+            <span class="dots" onclick="currentSlide(3)"></span>
+            <span class="dots" onclick="currentSlide(4)"></span>
+            <span class="dots" onclick="currentSlide(5)"></span>
+        </div>
+    
+    </div>
 
 </section>
 

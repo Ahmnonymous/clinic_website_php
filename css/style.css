@@ -305,30 +305,17 @@ section:nth-child(even){
 
 /* camps starts */
 
-#camps {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .carousel-line {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 800px;
-  }
-  
-  .carousel-container {
-    flex-basis: calc(33.33% - 10px);
+
+.carousel-container {
     border-radius: 30px;
     overflow: hidden;
+    max-width: 800px;
     position: relative;
     box-shadow: 0 0 30px -20px #223344;
-    margin: 0 5px;
+    margin: auto;
     z-index: 0;
   }
-    
+  
   /* Hide the images by default */
   .mySlides {
     display: none;
@@ -438,6 +425,7 @@ section:nth-child(even){
       transform: scale(1) rotateY(0deg);
     }
   }
+  
 
 /* camps ends */
 
