@@ -37,16 +37,6 @@ section:nth-child(even){
     background: #f5f5f5;
 }
 
-.logo-head {
-    text-decoration: none; /* Remove underline */
-  }
-  
-.logo-head i {
-   color: #ff0000; /* Set the color of the heart icon */
-   font-size: 20px; /* Adjust the size of the heart icon */
-}
-  
-
 /* main ends */
 
 /* header starts */
