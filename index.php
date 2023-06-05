@@ -1,7 +1,7 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous@786', 'db_contact_php') or die('connection failed');
-//$conn = mysqli_connect('localhost', 'root', '', 'db_contact_php') or die('connection failed');
+//$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous@786', 'db_contact_php') or die('connection failed');
+$conn = mysqli_connect('localhost', 'root', '', 'db_contact_php') or die('connection failed');
 
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -36,6 +36,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <a href="#" class="head-logo"> <i class="fas fa-heartbeat"></i></a>
     <title>Ehsan Clinic</title>
 
     <!-- JQuery link  -->
@@ -778,8 +779,38 @@ if (isset($_POST['submit'])) {
 <script src="js/script.js"></script>
 <script src="js/camps-slider.js"></script>
 <script src="js/validate-form.js"></script>
-<script src="js/reviews-slider.js"></script>
 <script src="js/swiper-bundle.min.js"></script>
+
+<script>
+    var swiper = new Swiper(".slide-content", {
+    slidesPerView: 1,
+    spaceBetween: 25,
+    loop: true,
+    centerSlide: true,
+    fade: true,
+    grabCursor: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    autoplay: {
+      delay: 5000,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      520: {
+        slidesPerView: 2,
+      },
+      950: {
+        slidesPerView: 3,
+      },
+    },
+  });
+
+</script>
 
 </body>
 </html>
