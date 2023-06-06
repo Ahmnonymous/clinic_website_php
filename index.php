@@ -1,7 +1,7 @@
 <?php
 
 $conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous@786', 'db_contact_php') or die('connection failed');
-//$conn = mysqli_connect('localhost', 'root', '', 'contact_db') or die('connection failed');
+//$conn = mysqli_connect('localhost', 'root', '', 'db_contact_php') or die('connection failed');
 
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -36,6 +36,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Ehsan Clinic</title>
 
     <!-- JQuery link  -->
@@ -269,68 +270,6 @@ if (isset($_POST['submit'])) {
 
 <!-- services section ends -->
 
-<!-- camps section starts -->
-
-<section id="camps">
-
-    <h1 class="heading"> FREE MEDICAL <span>CAMPS</span></h1>
-
-    <div class="carousel-container">
-
-        <div class="mySlides animate">
-            <img src="./image/camp1.jpg" alt="slide" />
-            <div class="number">1 / 6</div>
-            <div class="text">Chitral Valley, Ayun Village</div>
-        </div>
-
-        <div class="mySlides animate">
-            <img src="./image/camp2.jpg" alt="slide" />
-            <div class="number">2 / 6</div>
-            <div class="text">Mardan, Peshawar</div>
-        </div>
-
-        <div class="mySlides animate">
-            <img src="./image/camp3.jpg" alt="slide" />
-            <div class="number">3 / 6</div>
-            <div class="text">Charsadda Flood affected areas</div>
-        </div>
-
-        <div class="mySlides animate">
-            <img src="./image/camp4.jpg" alt="slide" />
-            <div class="number">4 / 6</div>
-            <div class="text">Charsadda remote Village Hassankhel</div>
-        </div>
-
-        <div class="mySlides animate">
-            <img src="./image/camp5.jpg" alt="slide" />
-            <div class="number">5 / 6</div>
-            <div class="text">Covid-19 Paediatric vaccine campaign AEFI</div>
-        </div>
-
-        <div class="mySlides animate">
-            <img src="./image/camp6.jpg" alt="slide" />
-            <div class="number">6 / 6</div>
-            <div class="text">Covid-19 Paediatric vaccine campaign in schools</div>
-        </div>
-
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="prevSlide()">&#10094;</a>
-        <a class="next" onclick="nextSlide()">&#10095;</a>
-
-        <!-- The dots/circles -->
-        <div class="dots-container">
-            <span class="dots" onclick="currentSlide(1)"></span>
-            <span class="dots" onclick="currentSlide(2)"></span>
-            <span class="dots" onclick="currentSlide(3)"></span>
-            <span class="dots" onclick="currentSlide(4)"></span>
-            <span class="dots" onclick="currentSlide(5)"></span>
-        </div>
-    
-    </div>
-
-</section>
-
-<!-- cammps section ends -->
 
 <!-- staff section starts  -->
 
@@ -774,12 +713,14 @@ if (isset($_POST['submit'])) {
 
 <!-- footer section ends -->
 
-
 <!-- js file link  -->
 <script src="js/script.js"></script>
+<script src="js/camps-slider.js"></script>
+<script src="js/validate-form.js"></script>
 <script src="js/swiper-bundle.min.js"></script>
+
 <script>
-  var swiper = new Swiper(".slide-content", {
+    var swiper = new Swiper(".slide-content", {
     slidesPerView: 1,
     spaceBetween: 25,
     loop: true,
@@ -806,103 +747,7 @@ if (isset($_POST['submit'])) {
       },
     },
   });
-</script>
 
-<script>
-function validateForm() {
-    var currentDate = new Date().toISOString().split('T')[0]; // Get the current date in ISO format
-    var currentTime = new Date().toISOString().split('T')[1].slice(0, 5); // Get the current time in HH:mm format
-
-    var selectedDate = document.getElementById("date").value;
-    var selectedTime = document.getElementById("time").value;
-
-    if (selectedDate < currentDate) {
-        showError("Invalid Date");
-        return false;
-    }
-
-    if (selectedDate === currentDate && selectedTime < currentTime) {
-        showError("Invalid Time");
-        return false;
-    }
-
-    return true;
-}
-
-function showError(message) {
-    var errorMessage = document.getElementById("error-message");
-    errorMessage.textContent = message;
-}
-
-// Remove error message when the inputs are modified
-document.getElementById("date").addEventListener("input", removeError);
-document.getElementById("time").addEventListener("input", removeError);
-
-function removeError() {
-    var errorMessage = document.getElementById("error-message");
-    errorMessage.textContent = "";
-}
-</script>
-
-<script>
-    let slideIndex = 0;
-showSlides();
-
-// Next-previous control
-function nextSlide() {
-  slideIndex++;
-  showSlides();
-  timer = _timer; // reset timer
-}
-
-function prevSlide() {
-  slideIndex--;
-  showSlides();
-  timer = _timer;
-}
-
-// Thumbnail image controlls
-function currentSlide(n) {
-  slideIndex = n - 1;
-  showSlides();
-  timer = _timer;
-}
-
-function showSlides() {
-  let slides = document.querySelectorAll(".mySlides");
-  let dots = document.querySelectorAll(".dots");
-
-  if (slideIndex > slides.length - 1) slideIndex = 0;
-  if (slideIndex < 0) slideIndex = slides.length - 1;
-  
-  // hide all slides
-  slides.forEach((slide) => {
-    slide.style.display = "none";
-  });
-  
-  // show one slide base on index number
-  slides[slideIndex].style.display = "block";
-  
-  dots.forEach((dot) => {
-    dot.classList.remove("active");
-  });
-  
-  dots[slideIndex].classList.add("active");
-}
-
-// autoplay slides --------
-let timer = 7; // sec
-const _timer = timer;
-
-// this function runs every 1 second
-setInterval(() => {
-  timer--;
-
-  if (timer < 1) {
-    nextSlide();
-    timer = _timer; // reset timer
-  }
-}, 1000); // 1sec
 </script>
 
 </body>
