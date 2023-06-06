@@ -6,7 +6,7 @@ function validateForm() {
     var selectedTime = document.getElementById("time").value;
 
     if (selectedDate < currentDate) {
-        showError("Invalid Date");
+        showError("Invalid");
         return false;
     }
 

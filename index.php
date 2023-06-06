@@ -1,7 +1,7 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous@786', 'db_contact_php') or die('connection failed');
-//$conn = mysqli_connect('localhost', 'root', '', 'db_contact_php') or die('connection failed');
+//$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous@786', 'db_contact_php') or die('connection failed');
+$conn = mysqli_connect('localhost', 'root', '', 'db_contact_php') or die('connection failed');
 
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -36,6 +36,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link rel="icon" href="./img/logo.png" type="image/png"-->
 
     <title>Ehsan Clinic</title>
 
@@ -59,10 +60,9 @@ if (isset($_POST['submit'])) {
     <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> <strong>ehsan</strong>clinic </a>
 
     <nav class="navbar">
-        <a href="#home">home</a>
+        <a href="#camps">home</a>
         <a href="#about">about</a>
         <a href="#services">services</a>
-        <a href="#camps">medical camps</a>
         <a href="#staff">staff</a>
         <a href="#appointment">appointment</a>
         <a href="#review">review</a>
@@ -75,29 +75,71 @@ if (isset($_POST['submit'])) {
 
 <!-- header section ends -->
 
-<!-- home section starts  -->
+<section id="camps">
 
-<section class="home" id="home">
-
-    <div class="image">
-        <img src="image/about-img.svg" alt="">
-    </div>
-
-    <div class="content">
-
-        <h3 class="you">we take care of you</h3>
-
-        <p> At Ehsan Clinic, we are dedicated to providing comprehensive and personalized healthcare services to individuals and families. 
+    <div class="carousel-container">
+    <div class="text">
+        <H1>WELCOME TO EHSAN CLINIC</H1>
+        <p> 
+            At Ehsan Clinic, we are dedicated to providing comprehensive and personalized healthcare services to individuals and families. 
             With a team of skilled medical staff and a state-of-the-art facility, 
             we strive to deliver exceptional medical care tailored to meet your unique needs.
         </p>
-
+        
         <a href="#appointment" class="btn"> appointment us <span class="fas fa-chevron-right"></span> </a>
+    
+    </div>
+
+        <div class="mySlides animate">
+            <img src="./image/camp1.jpg" alt="slide" />
+            <!--div class="text">Chitral Valley, Ayun Village</div-->
+        </div>
+
+        <div class="mySlides animate">
+            <img src="./image/camp2.jpg" alt="slide" />
+            <!--div class="text">Mardan, Peshawar</div-->
+        </div>
+
+        <div class="mySlides animate">
+            <img src="./image/camp3.jpg" alt="slide" />
+            <!--div class="text">Charsadda Flood affected areas</div-->
+        </div>
+
+        <div class="mySlides animate">
+            <img src="./image/camp4.jpg" alt="slide" />
+            <!--div class="text">Charsadda remote Village Hassankhel</div-->
+        </div>
+
+        <div class="mySlides animate">
+            <img src="./image/camp5.jpg" alt="slide" />
+            <!--div class="text">Covid-19 Paediatric vaccine campaign AEFI</div-->
+        </div>
+
+        <div class="mySlides animate">
+            <img src="./image/camp6.jpg" alt="slide" />
+            <!--div class="text">Covid-19 Paediatric vaccine campaign in schools</div-->
+        </div>
+
+        <!-- Next and previous buttons 
+        <a class="prev" onclick="prevSlide()">&#10094;</a>
+        <a class="next" onclick="nextSlide()">&#10095;</a>
+        -->
+
+        <!-- The dots/circles-->
+        <div class="dots-container">
+            <span class="dots" onclick="currentSlide(1)"></span>
+            <span class="dots" onclick="currentSlide(2)"></span>
+            <span class="dots" onclick="currentSlide(3)"></span>
+            <span class="dots" onclick="currentSlide(4)"></span>
+            <span class="dots" onclick="currentSlide(5)"></span>
+            <span class="dots" onclick="currentSlide(6)"></span>
+        </div>
+    
     </div>
 
 </section>
 
-<!-- home section ends -->
+<!-- cammps section ends -->
 
 <!-- why choose us section starts -->
 
@@ -270,70 +312,6 @@ if (isset($_POST['submit'])) {
 
 <!-- services section ends -->
 
-<!-- camps section starts -->
-
-<section id="camps">
-
-    <h1 class="heading"> FREE MEDICAL <span>CAMPS</span></h1>
-
-    <div class="carousel-container">
-
-        <div class="mySlides animate">
-            <img src="./image/camp1.jpg" alt="slide" />
-            <div class="number">1 / 6</div>
-            <div class="text">Chitral Valley, Ayun Village</div>
-        </div>
-
-        <div class="mySlides animate">
-            <img src="./image/camp2.jpg" alt="slide" />
-            <div class="number">2 / 6</div>
-            <div class="text">Mardan, Peshawar</div>
-        </div>
-
-        <div class="mySlides animate">
-            <img src="./image/camp3.jpg" alt="slide" />
-            <div class="number">3 / 6</div>
-            <div class="text">Charsadda Flood affected areas</div>
-        </div>
-
-        <div class="mySlides animate">
-            <img src="./image/camp4.jpg" alt="slide" />
-            <div class="number">4 / 6</div>
-            <div class="text">Charsadda remote Village Hassankhel</div>
-        </div>
-
-        <div class="mySlides animate">
-            <img src="./image/camp5.jpg" alt="slide" />
-            <div class="number">5 / 6</div>
-            <div class="text">Covid-19 Paediatric vaccine campaign AEFI</div>
-        </div>
-
-        <div class="mySlides animate">
-            <img src="./image/camp6.jpg" alt="slide" />
-            <div class="number">6 / 6</div>
-            <div class="text">Covid-19 Paediatric vaccine campaign in schools</div>
-        </div>
-
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="prevSlide()">&#10094;</a>
-        <a class="next" onclick="nextSlide()">&#10095;</a>
-
-        <!-- The dots/circles -->
-        <div class="dots-container">
-            <span class="dots" onclick="currentSlide(1)"></span>
-            <span class="dots" onclick="currentSlide(2)"></span>
-            <span class="dots" onclick="currentSlide(3)"></span>
-            <span class="dots" onclick="currentSlide(4)"></span>
-            <span class="dots" onclick="currentSlide(5)"></span>
-        </div>
-    
-    </div>
-
-</section>
-
-<!-- cammps section ends -->
-
-
 <!-- staff section starts  -->
 
 <section class="staff" id="staff">
@@ -394,7 +372,8 @@ if (isset($_POST['submit'])) {
 
 <section class="appointment" id="appointment">
 
-    <h1 class="heading"> <span>appointment</span> now </h1>    
+    <h1 class="heading"> <span>appointment</span> now </h1>  
+    
 
     <div class="row">
 
@@ -412,13 +391,14 @@ if (isset($_POST['submit'])) {
             }
             ?>
                 <h3>Make an appointment</h3>
+                <p> MORNING (10:00 AM - 02:00 PM) <br> EVENING (05:30 PM - 10:00 PM)</p>
                 <input type="text" name="name" placeholder="Your name" class="box" required>
                 <input type="number" name="number" placeholder="Your number" class="box" required>
                 <input type="email" name="email" placeholder="Your email" class="box">
                 <input type="date" name="date" id="date" class="box" required>
+                <span class="error-message" id="error-message"></span>
                 <input type="time" name="time" id="time" class="box" required>
                 <input type="submit" name="submit" value="Make an appointment now" class="btn">
-                <span class="error-message" id="error-message"></span>
             </div>
         </form>
 
