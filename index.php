@@ -60,7 +60,7 @@ if (isset($_POST['submit'])) {
     <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> <strong>ehsan</strong>clinic </a>
 
     <nav class="navbar">
-        <a href="#camps">home</a>
+        <a href="#home">home</a>
         <a href="#about">about</a>
         <a href="#services">services</a>
         <a href="#staff">staff</a>
@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
 
 <!-- header section ends -->
 
-<section id="camps">
+<section id="home">
 
     <div class="carousel-container">
     <div class="text">
@@ -92,38 +92,27 @@ if (isset($_POST['submit'])) {
 
         <div class="mySlides animate">
             <img src="./image/camp1.jpg" alt="slide" />
-            <!--div class="text">Chitral Valley, Ayun Village</div-->
         </div>
 
         <div class="mySlides animate">
             <img src="./image/camp2.jpg" alt="slide" />
-            <!--div class="text">Mardan, Peshawar</div-->
         </div>
 
         <div class="mySlides animate">
             <img src="./image/camp3.jpg" alt="slide" />
-            <!--div class="text">Charsadda Flood affected areas</div-->
         </div>
 
         <div class="mySlides animate">
             <img src="./image/camp4.jpg" alt="slide" />
-            <!--div class="text">Charsadda remote Village Hassankhel</div-->
         </div>
 
         <div class="mySlides animate">
             <img src="./image/camp5.jpg" alt="slide" />
-            <!--div class="text">Covid-19 Paediatric vaccine campaign AEFI</div-->
         </div>
 
         <div class="mySlides animate">
             <img src="./image/camp6.jpg" alt="slide" />
-            <!--div class="text">Covid-19 Paediatric vaccine campaign in schools</div-->
         </div>
-
-        <!-- Next and previous buttons 
-        <a class="prev" onclick="prevSlide()">&#10094;</a>
-        <a class="next" onclick="nextSlide()">&#10095;</a>
-        -->
 
         <!-- The dots/circles-->
         <div class="dots-container">
@@ -758,7 +747,7 @@ if (isset($_POST['submit'])) {
 
 <!-- js file link  -->
 <script src="js/script.js"></script>
-<script src="js/camps-slider.js"></script>
+<script src="js/home-slider.js"></script>
 <script src="js/validate-form.js"></script>
 <script src="js/swiper-bundle.min.js"></script>
 
