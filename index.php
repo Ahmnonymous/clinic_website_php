@@ -217,6 +217,15 @@ if (isset($_POST['submit'])) {
     <div class="box-container">
 
         <div class="box">
+        <i class="fas fa-brain"></i>
+            <h3>Mental Health Services</h3>
+            <p>
+               At our clinic, we provide comprehensive mental health services to support individuals in their emotional well-being and psychological growth. 
+               Our team of experienced mental health professionals offers a wide range of therapeutic interventions and treatment options tailored to meet the unique needs of each client.
+            </p>
+        </div>
+
+        <div class="box">
         <i class="fas fa-clinic-medical"></i>
             <h3>OPD</h3>
             <p>
