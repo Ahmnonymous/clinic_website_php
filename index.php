@@ -1,48 +1,33 @@
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 
 require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
 // SMTP configuration
-//$smtpHost = 'smtp.gmail.com';
-//$smtpPort = 465;
-$smtpUsername = 'a4medqureshi8@gmail.com'; // Replace with your Gmail email address
-$smtpPassword = 'rribxwdfhxybqhhp'; // Replace with your Gmail password
+$smtpHost = 'localhost';
+$smtpPort = 25;
+$smtpUsername = 'support@ehsanclinic.com'; // Leave it empty
+$smtpPassword = 'Ahmnonymous@786'; // Leave it empty
 
 // Create a new PHPMailer instance
 $mail = new PHPMailer();
 
 // Enable SMTP debugging (optional)
-//$mail->SMTPDebug = 0;
-$mail->SMTPDebug = 2;
-
-
-//Server settings
-    //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                       //Enable verbose debug output
-    //$mail->SMTPDebug = 2;                       //Enable verbose debug output           
-    //$mail->isSMTP();                                             //Send using SMTP
-
-
+$mail->SMTPDebug = SMTP::DEBUG_OFF;
 
 // Set the SMTP options
 $mail->isSMTP();
-$mail->Host         = "ssl://smtp.gmail.com";
-$mail->SMTPAuth     = true;
+$mail->Host = $smtpHost;
+$mail->Port = $smtpPort;
+$mail->SMTPAuth = false;
+$mail->SMTPAutoTLS = false;
+$mail->SMTPSecure = false;
 $mail->Username = $smtpUsername;
 $mail->Password = $smtpPassword;
-$mail->SMTPSecure   = "ssl";
-$mail->Port         = 465;
-$mail->SMTPOptions = array(
-    'ssl' => array(
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-    )
-);
-
 
 $conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous@786', 'db_contact_php') or die('connection failed');
 //$conn = mysqli_connect('localhost', 'root', '', 'db_contact_php') or die('connection failed');
@@ -70,7 +55,7 @@ if (isset($_POST['submit'])) {
             
             if (!empty($email)) {
                 // Send email to the client
-                $mail->setFrom('a4medqureshi8@gmail.com', 'Ehsan Clinic'); // Replace with your name and email address
+                $mail->setFrom('support@ehsanclinic.com', 'Ehsan Clinic'); // Replace with your name and email address
                 $mail->addAddress($email, $name); // Add the client as the recipient
                 $mail->Subject = 'Appointment For EhsanClinic.com';
                 $mail->Body = 'Dear ' . $name . ',' . "\n\n";
@@ -83,7 +68,7 @@ if (isset($_POST['submit'])) {
             
             // Send email to the default recipient
             $mail->clearAddresses(); // Clear any previous recipients
-            $defaultEmail = 'a4medqureshi8@gmail.com'; // Replace with the default recipient email
+            $defaultEmail = 'support@ehsanclinic.com'; // Replace with the default recipient email
             $mail->addAddress($defaultEmail, 'Dr. Hamza Ehsan'); // Add the default recipient
             $mail->Subject = 'Appointment For EhsanClinic.com';
             $mail->Body = 'New appointment details:' . "\n";
@@ -100,6 +85,8 @@ if (isset($_POST['submit'])) {
         }
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -805,7 +792,7 @@ if (isset($_POST['submit'])) {
         <div class="box">
             <h3>Contact info</h3>
             <a href="#footer"> <i class="fas fa-phone"></i> +92 333 5222048 </a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=a4medqureshi8@gmail.com&su=Hello&body=Dear recipient,%0D%0A%0D%0A" target="_blank"> <i class="fas fa-envelope"></i> ehsan@gmail.com </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=support@ehsanclinic.com&su=Hello&body=Dear recipient,%0D%0A%0D%0A" target="_blank"> <i class="fas fa-envelope"></i> support@ehsanclinic.com </a>
             <a href="https://www.google.com/maps/dir//Ehsan+Clinic%D8%8C+Near+Hathi+Chowk%D8%8C+Bazar+R.A.Bazar+Rd,+Saddar,+Rawalpindi,+Punjab+46000,+Pakistan%E2%80%AD/@33.6002206,73.0499861,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x38df95e888899965:0x70a7fa01d728bf11!2m2!1d73.0525595!2d33.6002004!3e0?hl=en-GB&entry=ttu" target="_blank"><i class="fas fa-map-marker-alt"></i> Rawalpindi, Pakistan</a>
 
         </div>
