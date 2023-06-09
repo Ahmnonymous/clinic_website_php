@@ -16,7 +16,9 @@ $smtpPassword = 'rribxwdfhxybqhhp'; // Replace with your Gmail password
 $mail = new PHPMailer();
 
 // Enable SMTP debugging (optional)
-$mail->SMTPDebug = 0;
+//$mail->SMTPDebug = 0;
+$mail->SMTPDebug = 2;
+
 
 // Set the SMTP options
 $mail->isSMTP();
