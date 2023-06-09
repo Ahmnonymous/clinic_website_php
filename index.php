@@ -29,12 +29,12 @@ $mail->SMTPDebug = 2;
 
 // Set the SMTP options
 $mail->isSMTP();
-$mail->Host         = "tls://smtp.gmail.com";
+$mail->Host         = "ssl://smtp.gmail.com";
 $mail->SMTPAuth     = true;
 $mail->Username = $smtpUsername;
 $mail->Password = $smtpPassword;
-$mail->SMTPSecure   = "tls";
-$mail->Port         = 587;
+$mail->SMTPSecure   = "ssl";
+$mail->Port         = 465;
 $mail->SMTPOptions = array(
     'ssl' => array(
         'verify_peer' => false,
