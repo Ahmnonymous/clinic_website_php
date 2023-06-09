@@ -4,3 +4,7 @@ Thumbs.db
 # Ignore configuration files with sensitive information
 main-config.php
 local-config.php
+
+# Ignore dependencies or build artifacts (if applicable)
+/phpMailer/
+/images/
