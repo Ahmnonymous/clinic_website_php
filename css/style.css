@@ -19,7 +19,7 @@
     text-transform: capitalize;
     transition: all .2s ease-out;
     text-decoration: none;
-    text-align: justify;
+    /*text-align: justify;*/
 }
 
 html{
@@ -178,6 +178,7 @@ section:nth-child(even){
     color:var(--light-color);
     line-height: 1.8;
     padding: 1rem 0;
+    text-align: justify;
 }
 
 /* home ends */
@@ -353,6 +354,7 @@ section:nth-child(even){
     padding:1rem 0;
     font-size: 1.5rem;
     line-height: 1.8;
+    text-align: justify;
 }
 
 /* about ends */
@@ -496,6 +498,10 @@ section:nth-child(even){
 
 .appointment .row form .error-message{
     color: red;
+    text-align: center;
+    font-size: 1.5rem;
+    display: block;
+    padding-top: 1rem;
 }
 .appointment .row form h3{
     color:var(--black);
@@ -515,9 +521,10 @@ section:nth-child(even){
     padding: 1rem;
 }
 
-.appointment .row form .btn{
+.appointment .row .form-container .btn{
     padding:1rem 4rem;
-    margin-left: 20%;
+    text-align: center;
+
 }
 
 .appointment .row form p{
@@ -601,6 +608,7 @@ section:nth-child(even){
     font-size: 25px;
     font-weight: 500;
     color:var(--green);
+    text-align: justify;
   }
   .description{
     margin-top: 5px;

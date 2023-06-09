@@ -6,12 +6,7 @@ use PHPMailer\PHPMailer\SMTP;
 require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
-
-// SMTP configuration
-$smtpHost = 'localhost';
-$smtpPort = 25;
-$smtpUsername = 'support@ehsanclinic.com'; // Leave it empty
-$smtpPassword = 'Ahmnonymous@786'; // Leave it empty
+require './main-config.php';
 
 // Create a new PHPMailer instance
 $mail = new PHPMailer();
@@ -21,16 +16,21 @@ $mail->SMTPDebug = SMTP::DEBUG_OFF;
 
 // Set the SMTP options
 $mail->isSMTP();
-$mail->Host = $smtpHost;
-$mail->Port = $smtpPort;
-$mail->SMTPAuth = false;
-$mail->SMTPAutoTLS = false;
-$mail->SMTPSecure = false;
-$mail->Username = $smtpUsername;
-$mail->Password = $smtpPassword;
+$mail->Host = SMTP_HOST;
+$mail->Port = SMTP_PORT;
+$mail->SMTPAuth = SMTP_AUTH;
+$mail->SMTPAutoTLS = SMTP_AUTO_TLS;
+$mail->SMTPSecure = SMTP_SECURE;
+$mail->Username = SMTP_USERNAME;
+$mail->Password = SMTP_PASSWORD;
 
-$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous@786', 'db_contact_php') or die('connection failed');
-//$conn = mysqli_connect('localhost', 'root', '', 'db_contact_php') or die('connection failed');
+//DB Connection
+$Dbusername = DB_USERNAME;
+$Dbpassword = DB_PASSWORD;
+$Dbname = DB_NAME;
+$Dbhost = DB_HOST;
+
+$conn = mysqli_connect($Dbhost, $Dbusername, $Dbpassword, $Dbname) or die('connection failed');
 
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -88,6 +88,7 @@ if (isset($_POST['submit'])) {
 
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -438,7 +439,7 @@ if (isset($_POST['submit'])) {
             <img src="image/appointment-img.svg" alt="">
         </div>
 
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validateForm()">        
+        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validateForm()">        
             <div class="form-container">
             <?php
             if (isset($message)) {
@@ -453,9 +454,9 @@ if (isset($_POST['submit'])) {
                 <input type="number" name="number" placeholder="Your number" class="box" required>
                 <input type="email" name="email" placeholder="Your email" class="box">
                 <input type="date" name="date" id="date" class="box" required>
-                <span class="error-message" id="error-message"></span>
                 <input type="time" name="time" id="time" class="box" required>
                 <input type="submit" name="submit" value="Make an appointment now" class="btn">
+                <span class="error-message" id="error-message"></span>
             </div>
         </form>
 
