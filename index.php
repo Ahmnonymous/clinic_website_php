@@ -8,7 +8,7 @@ require './PHPMailer/src/SMTP.php';
 
 // SMTP configuration
 $smtpHost = 'smtp.gmail.com';
-$smtpPort = 587;
+$smtpPort = 465;
 $smtpUsername = 'a4medqureshi8@gmail.com'; // Replace with your Gmail email address
 $smtpPassword = 'rribxwdfhxybqhhp'; // Replace with your Gmail password
 
