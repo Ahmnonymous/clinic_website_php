@@ -8,3 +8,12 @@ local-config.php
 # Ignore dependencies or build artifacts (if applicable)
 /phpMailer/
 /images/
+<<<<<<< HEAD
+=======
+db_contact_php.sql
+
+# Ignore specific files
+index.php
+/css/style.css
+/js/script.js
+>>>>>>> 42483d6389a435d26ba115539d3fd072c0a5ca11
