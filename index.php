@@ -7,8 +7,8 @@ require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
 // SMTP configuration
-$smtpHost = 'smtp.gmail.com';
-$smtpPort = 465;
+//$smtpHost = 'smtp.gmail.com';
+//$smtpPort = 465;
 $smtpUsername = 'a4medqureshi8@gmail.com'; // Replace with your Gmail email address
 $smtpPassword = 'rribxwdfhxybqhhp'; // Replace with your Gmail password
 
@@ -20,14 +20,29 @@ $mail = new PHPMailer();
 $mail->SMTPDebug = 2;
 
 
+//Server settings
+    //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                       //Enable verbose debug output
+    //$mail->SMTPDebug = 2;                       //Enable verbose debug output           
+    //$mail->isSMTP();                                             //Send using SMTP
+
+
+
 // Set the SMTP options
 $mail->isSMTP();
-$mail->Host = $smtpHost;
-$mail->Port = $smtpPort;
-$mail->SMTPAuth = true;
-$mail->SMTPSecure = 'ssl';
+$mail->Host         = "tls://smtp.gmail.com";
+$mail->SMTPAuth     = true;
 $mail->Username = $smtpUsername;
 $mail->Password = $smtpPassword;
+$mail->SMTPSecure   = "tls";
+$mail->Port         = 587;
+$mail->SMTPOptions = array(
+    'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+    )
+);
+
 
 $conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous@786', 'db_contact_php') or die('connection failed');
 //$conn = mysqli_connect('localhost', 'root', '', 'db_contact_php') or die('connection failed');
