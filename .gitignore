@@ -1,0 +1,15 @@
+# Ignore system and IDE files
+Thumbs.db
+
+# Ignore configuration files with sensitive information
+config.php
+
+# Ignore dependencies or build artifacts (if applicable)
+/phpMailer/
+/images/
+db_contact_php.sql
+
+# Ignore specific files
+index.php
+/css/style.css
+/js/script.js
