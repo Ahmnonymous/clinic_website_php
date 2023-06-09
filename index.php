@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\SMTP;
 require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
-//require 'main-config.php';
+require './main-config.php';
 
 // Create a new PHPMailer instance
 $mail = new PHPMailer();
@@ -24,8 +24,8 @@ $mail->SMTPSecure = SMTP_SECURE;
 $mail->Username = SMTP_USERNAME;
 $mail->Password = SMTP_PASSWORD;
 
-$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous786', 'db_contact_php') or die('connection failed');
-//$conn = mysqli_connect(DB_HOST,DB_USERNAME, DB_PASSWORD, DB_NAME) or die('connection failed');
+//$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous786', 'db_contact_php') or die('connection failed');
+$conn = mysqli_connect(DB_HOST,DB_USERNAME, DB_PASSWORD, DB_NAME) or die('connection failed');
 
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
