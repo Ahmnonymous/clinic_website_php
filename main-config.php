@@ -3,6 +3,8 @@ define('SMTP_HOST', 'localhost');
 define('SMTP_PORT', 25);
 define('SMTP_USERNAME', 'support@ehsanclinic.com');
 define('SMTP_PASSWORD', 'Ahmnonymous@786');
+define('SMTP_USERNAME_L', 'a4medqureshi8@gmail.com');
+define('SMTP_PASSWORD_L', 'rribxwdfhxybqhhp');
 define('SMTP_AUTH', false);
 define('SMTP_SECURE', false);
 define('SMTP_AUTO_TLS', false);

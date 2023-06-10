@@ -67,10 +67,12 @@ if (isset($_POST['submit'])) {
                 $mail->send();
             }
             
+            $mail->Username = SMTP_USERNAME_L;
+            $mail->Password = SMTP_PASSWORD_L;
             // Send email to the default recipient
             $mail->clearAddresses(); // Clear any previous recipients
             //$defaultEmail = 'support@ehsanclinic.com'; // Replace with the default recipient email
-            $mail->setFrom('support@ehsanclinic.com', 'Ehsan Clinic');
+            $mail->setFrom('a4medqureshi8@gmail.com', 'Dr. Ehsan Clinic Assistant');
             $mail->addAddress('support@ehsanclinic.com', 'Dr. Hamza Ehsan'); // Add the default recipient
             $mail->Subject = 'Appointment For EhsanClinic.com';
             $mail->Body = 'New appointment details:' . "\n";
