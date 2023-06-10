@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2023 at 08:22 PM
+-- Generation Time: Jun 10, 2023 at 09:30 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,31 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact_form`
+-- Table structure for table `contact`
 --
 
-CREATE TABLE `contact_form` (
+CREATE TABLE `contact` (
   `id` int(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `subject` varchar(5000) NOT NULL,
   `number` varchar(10) NOT NULL,
   `date` date NOT NULL,
-  `time` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `contact_us`
---
-
-CREATE TABLE `contact_us` (
-  `ID` int(30) NOT NULL,
-  `NAME` varchar(255) NOT NULL,
-  `EMAIL` varchar(100) NOT NULL,
-  `SUBJECT` varchar(5000) NOT NULL,
-  `DATE` date NOT NULL,
-  `TIME` time NOT NULL
+  `time` time NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -56,32 +43,20 @@ CREATE TABLE `contact_us` (
 --
 
 --
--- Indexes for table `contact_form`
+-- Indexes for table `contact`
 --
-ALTER TABLE `contact_form`
+ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `contact_us`
---
-ALTER TABLE `contact_us`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `contact_form`
+-- AUTO_INCREMENT for table `contact`
 --
-ALTER TABLE `contact_form`
+ALTER TABLE `contact`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `contact_us`
---
-ALTER TABLE `contact_us`
-  MODIFY `ID` int(30) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

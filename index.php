@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\SMTP;
 require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
-require 'main-config.php';
+require 'local-config.php';
 
 // Create a new PHPMailer instance
 $mail = new PHPMailer();
@@ -30,9 +30,11 @@ $conn = mysqli_connect(DB_HOST,DB_USERNAME, DB_PASSWORD, DB_NAME) or die('connec
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $subject = "Appointment for EhsanClinic";
     $number = $_POST['number'];
     $time = $_POST['time'];
     $date = $_POST['date'];
+    $status = "Appointment";
 
     // Check if the same date and time already exist in the database
     $checkQuery = "SELECT * FROM `contact_form` WHERE `date` = '$date' AND `time` = '$time'";
@@ -41,7 +43,7 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($checkResult) > 0) {
         $message[] = 'This appointment time is not available.';
     } else {
-        $insertQuery = "INSERT INTO `contact_form` (name, email, number, date, time) VALUES ('$name', '$email', '$number', '$date', '$time')";
+        $insertQuery = "INSERT INTO `contact` (name, email,subject, number, date, time,status) VALUES ('$name', '$email', '$subject','$number', '$date', '$time','$status')";
         $insert = mysqli_query($conn, $insertQuery) or die('query failed');
 
         if ($insert) {
@@ -81,6 +83,53 @@ if (isset($_POST['submit'])) {
     }
 }
 
+
+if (isset($_POST['submit_us'])) {
+            
+    $name_us = mysqli_real_escape_string($conn, $_POST['name_us']);
+    $email_us = mysqli_real_escape_string($conn, $_POST['email_us']);
+    $number_us = $_POST['number_us'];
+    $subject_us = $_POST['subject_us'];
+    $Date_us = date('Y-m-d');
+    $Time_us = date('H:i:s');
+    $status_us = "Message";
+
+    $insertQuery_us = "INSERT INTO `contact` (name, email, subject,number,date,time,status) VALUES ('$name_us', '$email_us', '$subject_us','$number_us','$Date_us','$Time_us','$status_us')";
+    $insert_us = mysqli_query($conn, $insertQuery_us) or die('query failed');
+
+    if($insert_us)
+        $message_us[] = "Message sent successfully!";
+        $formattedDate = date('jS F, Y', strtotime($Date_us)); // Format the date
+    
+        if (!empty($email_us)) {
+            // Send email to the client
+            $mail->setFrom('support@ehsanclinic.com', 'Ehsan Clinic'); // Replace with your name and email address
+            $mail->addAddress($email_us, $name_us); // Add the client as the recipient
+            $mail->Subject = 'Message For EhsanClinic.com';
+            $mail->Body = 'Dear ' . $name_us . ',' . "\n\n";
+            $mail->Body .= 'Your Response was succesfully submitted!' . "\n";
+            $mail->Body .= 'Thank you for contacting with Ehsan Clinic. We will be contacting you in a while.' . "\n\n";
+            $mail->Body .= 'Best regards,' . "\n";
+            $mail->Body .= 'Dr. Hamza Ehsan' . "\n";
+            $mail->Body .= 'Ehsan Clinic';
+            $mail->send();
+        }
+        
+        // Send email to the default recipient
+        $mail->clearAddresses(); // Clear any previous recipients
+        $defaultEmail = 'a4medqureshi8@gmail.com'; // Replace with the default recipient email
+        $mail->addAddress($defaultEmail, 'Dr. Hamza Ehsan'); // Add the default recipient
+        $mail->Subject = 'Message For EhsanClinic.com';
+        $mail->Body = 'New Message details:' . "\n";
+        $mail->Body .= 'Name: ' . $name_us . "\n";
+        $mail->Body .= 'Email: ' . $email_us . "\n";
+        $mail->Body .= 'Number: ' . $number_us . "\n";
+        $mail->Body .= 'Time: ' . $Time_us . "\n";
+        $mail->Body .= 'Date: ' . $formattedDate . "\n\n";
+        $mail->Body .= 'Message: ' . $subject_us . "\n";
+        
+        // Send the email to the default recipient
+        $mail->send();}
 
 ?>
 
@@ -762,31 +811,18 @@ if (isset($_POST['submit'])) {
 
     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <?php
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-            $conn_us = mysqli_connect(DB_HOST,DB_USERNAME, DB_PASSWORD, DB_NAME) or die('connection failed');
-            
-            $name_us = mysqli_real_escape_string($conn, $_POST['name_us']);
-            $email_us = mysqli_real_escape_string($conn, $_POST['email_us']);
-            $subject_us = $_POST['subject_us'];
-            $Date_us = date('Y-m-d');
-            $Time_us = date('H:i:s');
-
-            $insertQuery = "INSERT INTO `contact_us` (name, email, subject,date,time) VALUES ('$name_us', '$email_us', '$subject_us','$Date_us','$Time_us')";
-            $insert_us = mysqli_query($conn, $insertQuery) or die('query failed');
-
-            if($insert_us)
-                echo "<p class='message'>Message sent successfully!</p>";
-            else {
-                echo "<p class='message'>Technical Issue. <br> Message not sent successfully!</p>";
+            if (isset($message_us)) {
+                foreach ($message_us as $msg) {
+                    echo '<p class="message">' . $msg . '</p>';
+                }
             }
-        }
         ?>
         <div><img src="./image/mail-icon.png" alt="icon"></div>
         <input type="text" name="name_us" placeholder="Name" required>
         <input type="email" name="email_us" placeholder="Email address" required>
+        <input type="phone" name="number_us" placeholder="Phone Number" required>
         <textarea name="subject_us" placeholder="Subject" required></textarea>
-        <input type="submit" name="submit-us" value="Send Message">
+        <input type="submit" name="submit_us" value="Send Message">
     </form>
 </section>
 
