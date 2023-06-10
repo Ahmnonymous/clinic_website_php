@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2023 at 03:20 PM
+-- Generation Time: Jun 10, 2023 at 08:22 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `contact_db`
+-- Database: `db_contact_php`
 --
 
 -- --------------------------------------------------------
@@ -36,17 +36,20 @@ CREATE TABLE `contact_form` (
   `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `contact_form`
+-- Table structure for table `contact_us`
 --
 
-INSERT INTO `contact_form` (`id`, `name`, `email`, `number`, `date`, `time`) VALUES
-(1, 'AHMED RAZA', 'a4medqureshi8@gmail.com', '9233657958', '2023-12-04', '12:59:00'),
-(2, 'AHMED RAZA', 'a4medqureshi8@gmail.com', '3290482', '2023-08-01', '13:59:00'),
-(3, 'AHMED RAZA39048239', 'a4medqureshi8@gmail.com', '2390482390', '2023-07-31', '12:58:00'),
-(4, 'AHMED RAZA39048239', 'a4medqureshi8@gmail.com', '30942', '2023-07-01', '00:00:00'),
-(5, 'AHMED RAZA', 'a4medqureshi8@gmail.com', '934823904', '2023-06-30', '12:59:00'),
-(6, 'AHMED RAZA', 'a4medqureshi8@gmail.com', '3209842394', '2023-07-01', '01:00:00');
+CREATE TABLE `contact_us` (
+  `ID` int(30) NOT NULL,
+  `NAME` varchar(255) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL,
+  `SUBJECT` varchar(5000) NOT NULL,
+  `DATE` date NOT NULL,
+  `TIME` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -59,6 +62,12 @@ ALTER TABLE `contact_form`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -66,7 +75,13 @@ ALTER TABLE `contact_form`
 -- AUTO_INCREMENT for table `contact_form`
 --
 ALTER TABLE `contact_form`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  MODIFY `ID` int(30) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

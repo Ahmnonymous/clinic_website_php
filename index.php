@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
         <a href="#staff">staff</a>
         <a href="#appointment">appointment</a>
         <a href="#review">review</a>
-        <a href="#footer">contact us</a>
+        <a href="#contact">contact us</a>
     </nav>
 
     <div id="menu-btn" class="fas fa-bars"></div>
@@ -754,6 +754,43 @@ if (isset($_POST['submit'])) {
         
 </section>
 <!-- review section starts -->
+
+<!-- contact section starts -->
+
+<section id="contact" class="contact">
+    <h1 class="heading"><span>CONTACT</span> US</h1>
+
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+            $conn_us = mysqli_connect(DB_HOST,DB_USERNAME, DB_PASSWORD, DB_NAME) or die('connection failed');
+            
+            $name_us = mysqli_real_escape_string($conn, $_POST['name_us']);
+            $email_us = mysqli_real_escape_string($conn, $_POST['email_us']);
+            $subject_us = $_POST['subject_us'];
+            $Date_us = date('Y-m-d');
+            $Time_us = date('H:i:s');
+
+            $insertQuery = "INSERT INTO `contact_us` (name, email, subject,date,time) VALUES ('$name_us', '$email_us', '$subject_us','$Date_us','$Time_us')";
+            $insert_us = mysqli_query($conn, $insertQuery) or die('query failed');
+
+            if($insert_us)
+                echo "<p class='message'>Message sent successfully!</p>";
+            else {
+                echo "<p class='message'>Technical Issue. <br> Message not sent successfully!</p>";
+            }
+        }
+        ?>
+        <div><img src="./image/mail-icon.png" alt="icon"></div>
+        <input type="text" name="name_us" placeholder="Name" required>
+        <input type="email" name="email_us" placeholder="Email address" required>
+        <textarea name="subject_us" placeholder="Subject" required></textarea>
+        <input type="submit" name="submit-us" value="Send Message">
+    </form>
+</section>
+
+<!-- contact section ends -->
 
 <!-- footer section starts  -->
 
