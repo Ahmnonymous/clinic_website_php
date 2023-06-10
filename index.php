@@ -30,7 +30,7 @@ $mail->SMTPSecure = SMTP_SECURE;
 $mail->Username = SMTP_USERNAME;
 $mail->Password = SMTP_PASSWORD;
 
-//$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous786', 'db_contact_php') or die('connection failed');
+//DB CONNECTION
 $conn = mysqli_connect(DB_HOST,DB_USERNAME, DB_PASSWORD, DB_NAME) or die('connection failed');
 
 if (isset($_POST['submit'])) {
@@ -69,8 +69,9 @@ if (isset($_POST['submit'])) {
             
             // Send email to the default recipient
             $mail->clearAddresses(); // Clear any previous recipients
-            $defaultEmail = 'support@ehsanclinic.com'; // Replace with the default recipient email
-            $mail->addAddress($defaultEmail, 'Dr. Hamza Ehsan'); // Add the default recipient
+            //$defaultEmail = 'support@ehsanclinic.com'; // Replace with the default recipient email
+            $mail->setFrom('support@ehsanclinic.com', 'Ehsan Clinic');
+            $mail->addAddress('support@ehsanclinic.com', 'Dr. Hamza Ehsan'); // Add the default recipient
             $mail->Subject = 'Appointment For EhsanClinic.com';
             $mail->Body = 'New appointment details:' . "\n";
             $mail->Body .= 'Name: ' . $name . "\n";
