@@ -8,15 +8,19 @@ require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 require 'main-config.php';
 
+/*SMTM CREDENTIALS
+$smtpHost = SMTP_HOST;
+$smtpPort = SMTP_PORT;
+$smtpUsername = SMTP_USERNAME;
+$smtpPassword = SMTP_PASSWORD;
+*/
 // Create a new PHPMailer instance
 $mail = new PHPMailer();
-$maill = new PHPMailer();
 
 // Enable SMTP debugging (optional)
 $mail->SMTPDebug = SMTP::DEBUG_OFF;
-$maill->SMTPDebug = SMTP::DEBUG_OFF;
 
-// Set the 1st-SMTP options
+// Set the SMTP options
 $mail->isSMTP();
 $mail->Host = SMTP_HOST;
 $mail->Port = SMTP_PORT;
@@ -26,17 +30,7 @@ $mail->SMTPSecure = SMTP_SECURE;
 $mail->Username = SMTP_USERNAME;
 $mail->Password = SMTP_PASSWORD;
 
-// Set the 2nd-SMTP options
-$maill->isSMTP();
-$maill->Host = SMTP_HOST;
-$maill->Port = SMTP_PORT;
-$maill->SMTPAuth = SMTP_AUTH;
-$maill->SMTPAutoTLS = SMTP_AUTO_TLS;
-$maill->SMTPSecure = SMTP_SECURE;
-$maill->Username = SMTP_USERNAME_L;
-$maill->Password = SMTP_PASSWORD_L;
-
-//DB CONNECTION
+//$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous786', 'db_contact_php') or die('connection failed');
 $conn = mysqli_connect(DB_HOST,DB_USERNAME, DB_PASSWORD, DB_NAME) or die('connection failed');
 
 if (isset($_POST['submit'])) {
@@ -52,20 +46,15 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_num_rows($checkResult) > 0) {
         $message[] = 'This appointment time is not available.';
-    } 
-    
-    else {
-        
+    } else {
         $insertQuery = "INSERT INTO `contact_form` (name, email, number, date, time) VALUES ('$name', '$email', '$number', '$date', '$time')";
         $insert = mysqli_query($conn, $insertQuery) or die('query failed');
 
         if ($insert) {
-            
             $message[] = 'Appointment made successfully!';
             $formattedDate = date('jS F, Y', strtotime($date)); // Format the date
             
             if (!empty($email)) {
-                
                 // Send email to the client
                 $mail->setFrom('support@ehsanclinic.com', 'Ehsan Clinic'); // Replace with your name and email address
                 $mail->addAddress($email, $name); // Add the client as the recipient
@@ -76,27 +65,23 @@ if (isset($_POST['submit'])) {
                 $mail->Body .= 'Dr. Hamza Ehsan' . "\n";
                 $mail->Body .= 'Ehsan Clinic';
                 $mail->send();
-
             }
             
-            $mail->clearAddresses(); // Clear any previous recipients
-
             // Send email to the default recipient
-            $maill->setFrom('a4medqureshi8@gmail.com', 'Dr. Ehsan Clinic Assistant');
-            $maill->addAddress('a4medqureshi8@gmail.com', 'Dr. Hamza Ehsan'); // Add the default recipient
-            $maill->Subject = 'Appointment For EhsanClinic.com';
-            $maill->Body = 'New appointment details:' . "\n";
-            $maill->Body .= 'Name: ' . $name . "\n";
-            $maill->Body .= 'Email: ' . $email . "\n";
-            $maill->Body .= 'Number: ' . $number . "\n";
-            $maill->Body .= 'Time: ' . $time . "\n";
-            $maill->Body .= 'Date: ' . $formattedDate . "\n";
+            $mail->clearAddresses(); // Clear any previous recipients
+            $defaultEmail = 'support@ehsanclinic.com'; // Replace with the default recipient email
+            $mail->addAddress($defaultEmail, 'Dr. Hamza Ehsan'); // Add the default recipient
+            $mail->Subject = 'Appointment For EhsanClinic.com';
+            $mail->Body = 'New appointment details:' . "\n";
+            $mail->Body .= 'Name: ' . $name . "\n";
+            $mail->Body .= 'Email: ' . $email . "\n";
+            $mail->Body .= 'Number: ' . $number . "\n";
+            $mail->Body .= 'Time: ' . $time . "\n";
+            $mail->Body .= 'Date: ' . $formattedDate . "\n";
             
             // Send the email to the default recipient
-            $maill->send();
-
+            $mail->send();
         } else {
-            
             $message[] = 'Appointment failed.';
         }
     }
