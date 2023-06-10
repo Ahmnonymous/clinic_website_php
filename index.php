@@ -6,8 +6,14 @@ use PHPMailer\PHPMailer\SMTP;
 require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
-require './main-config.php';
+require 'main-config.php';
 
+/*SMTM CREDENTIALS
+$smtpHost = SMTP_HOST;
+$smtpPort = SMTP_PORT;
+$smtpUsername = SMTP_USERNAME;
+$smtpPassword = SMTP_PASSWORD;
+*/
 // Create a new PHPMailer instance
 $mail = new PHPMailer();
 
