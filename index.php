@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
     $status = "Appointment";
 
     // Check if the same date and time already exist in the database
-    $checkQuery = "SELECT * FROM `contact_form` WHERE `date` = '$date' AND `time` = '$time'";
+    $checkQuery = "SELECT * FROM `contact_form` WHERE `date` = '$date' AND `time` = '$time' AND 'status' = '$status'";
     $checkResult = mysqli_query($conn, $checkQuery);
 
     if (mysqli_num_rows($checkResult) > 0) {
