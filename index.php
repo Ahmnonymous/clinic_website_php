@@ -8,12 +8,6 @@ require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 require 'main-config.php';
 
-/*SMTM CREDENTIALS
-$smtpHost = SMTP_HOST;
-$smtpPort = SMTP_PORT;
-$smtpUsername = SMTP_USERNAME;
-$smtpPassword = SMTP_PASSWORD;
-*/
 // Create a new PHPMailer instance
 $mail = new PHPMailer();
 
@@ -69,7 +63,7 @@ if (isset($_POST['submit'])) {
             
             // Send email to the default recipient
             $mail->clearAddresses(); // Clear any previous recipients
-            $defaultEmail = 'support@ehsanclinic.com'; // Replace with the default recipient email
+            $defaultEmail = 'a4medqureshi8@gmail.com'; // Replace with the default recipient email
             $mail->addAddress($defaultEmail, 'Dr. Hamza Ehsan'); // Add the default recipient
             $mail->Subject = 'Appointment For EhsanClinic.com';
             $mail->Body = 'New appointment details:' . "\n";
