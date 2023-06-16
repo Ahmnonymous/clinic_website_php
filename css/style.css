@@ -149,10 +149,6 @@ section:nth-child(even){
     z-index: 9999;
   }
   
-  .loader.hidden {
-    display: none;
-  }
-  
   .loader::before,
   .loader::after {
     content: "";
@@ -161,7 +157,7 @@ section:nth-child(even){
     height: 15px;
     background: var(--green);
     position: absolute;
-    animation: load .7s infinite alternate ease-in-out;
+    animation: load 1s alternate ease-in-out;
     transition-property: left;
   }
   
