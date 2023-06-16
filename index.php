@@ -1,5 +1,4 @@
 <?php
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
@@ -156,7 +155,12 @@ if (isset($_POST['submit_us'])) {
 
 </head>
 <body>
-    
+<!-- loader section starts  -->
+
+    <div class="loader">Loading...</div>
+
+<!-- loader section starts  -->
+
 <!-- header section starts  -->
 
 <header class="header">
@@ -195,27 +199,27 @@ if (isset($_POST['submit_us'])) {
     </div>
 
         <div class="mySlides animate">
-            <img src="./image/camp1.jpg" alt="slide" />
+            <img src="./image/camp1.webp" alt="slide" />
         </div>
 
         <div class="mySlides animate">
-            <img src="./image/camp2.jpg" alt="slide" />
+            <img src="./image/camp2.webp" alt="slide" />
         </div>
 
         <div class="mySlides animate">
-            <img src="./image/camp3.jpg" alt="slide" />
+            <img src="./image/camp3.webp" alt="slide" />
         </div>
 
         <div class="mySlides animate">
-            <img src="./image/camp4.jpg" alt="slide" />
+            <img src="./image/camp4.webp" alt="slide" />
         </div>
 
         <div class="mySlides animate">
-            <img src="./image/camp5.jpg" alt="slide" />
+            <img src="./image/camp5.webp" alt="slide" />
         </div>
 
         <div class="mySlides animate">
-            <img src="./image/camp6.jpg" alt="slide" />
+            <img src="./image/camp6.webp" alt="slide" />
         </div>
 
         <!-- The dots/circles-->
@@ -285,7 +289,7 @@ if (isset($_POST['submit_us'])) {
     <div class="row">
 
         <div class="image">
-            <img src="image/drehsan.jpeg" alt="">
+            <img src="image/drehsan.webp" alt="">
         </div>
 
         <div class="content">
@@ -423,43 +427,43 @@ if (isset($_POST['submit_us'])) {
     <div class="box-container">
 
         <div class="box">
-            <img src="image/doc-0.jpeg" alt="">
+            <img src="image/doc-0.webp" alt="">
             <h3>Clinic Administrator</h3>
             <span>expert doctor</span>
         </div>
 
         <div class="box">
-            <img src="image/doc-1.jpg" alt="">
+            <img src="image/doc-1.webp" alt="">
             <h3>Head Staff</h3>
             <span>expert doctor</span>
         </div>
 
         <div class="box">
-            <img src="image/doc-2.jpg" alt="">
+            <img src="image/doc-2.webp" alt="">
             <h3>Senior Staff</h3>
             <span>expert doctor</span>
         </div>
 
         <div class="box">
-            <img src="image/doc-3.jpeg" alt="">
+            <img src="image/doc-3.webp" alt="">
             <h3>Senior Staff</h3>
             <span>expert doctor</span>
         </div>
 
         <div class="box">
-            <img src="image/doc-4.jpg" alt="">
+            <img src="image/doc-4.webp" alt="">
             <h3>Staff</h3>
             <span>expert doctor</span>
         </div>
 
         <div class="box">
-            <img src="image/doc-5.jpg" alt="">
+            <img src="image/doc-5.webp" alt="">
             <h3>Staff</h3>
             <span>expert doctor</span>
         </div>
 
         <div class="box">
-            <img src="image/doc-6.jpg" alt="">
+            <img src="image/doc-6.webp" alt="">
             <h3>Staff</h3>
             <span>expert doctor</span>
         </div>
@@ -495,7 +499,7 @@ if (isset($_POST['submit_us'])) {
                 <h3>Make an appointment</h3>
                 <p> MORNING (10:00 AM - 02:00 PM) <br> EVENING (05:30 PM - 10:00 PM)</p>
                 <input type="text" name="name" placeholder="Your name" class="box" required>
-                <input type="number" name="number" placeholder="Your number" class="box" required>
+                <input type="phone" name="number" placeholder="Your number" class="box" required>
                 <input type="email" name="email" placeholder="Your email" class="box">
                 <input type="date" name="date" id="date" class="box" required>
                 <input type="time" name="time" id="time" class="box" required>
@@ -916,6 +920,106 @@ if (isset($_POST['submit_us'])) {
       },
     },
   });
+
+</script>
+
+<script>
+    function validateForm() {
+    var currentDate = new Date().toISOString().split('T')[0]; // Get the current date in ISO format
+    var currentTime = new Date().toISOString().split('T')[1].slice(0, 5); // Get the current time in HH:mm format
+
+    var selectedDate = document.getElementById("date").value;
+    var selectedTime = document.getElementById("time").value;
+
+    if (selectedDate < currentDate) {
+        showError("Invalid");
+        return false;
+    }
+
+    if (selectedDate === currentDate && selectedTime < currentTime) {
+        showError("Invalid Time");
+        return false;
+    }
+
+    return true;
+}
+
+function showError(message) {
+    var errorMessage = document.getElementById("error-message");
+    errorMessage.textContent = message;
+}
+
+// Remove error message when the inputs are modified
+document.getElementById("date").addEventListener("input", removeError);
+document.getElementById("time").addEventListener("input", removeError);
+
+function removeError() {
+    var errorMessage = document.getElementById("error-message");
+    errorMessage.textContent = "";
+}
+
+</script>
+
+<script>
+    let slideIndex = 0;
+showSlides();
+
+// Next-previous control
+function nextSlide() {
+  slideIndex++;
+  showSlides();
+  timer = _timer; // reset timer
+}
+
+function prevSlide() {
+  slideIndex--;
+  showSlides();
+  timer = _timer;
+}
+
+// Thumbnail image controlls
+function currentSlide(n) {
+  slideIndex = n - 1;
+  showSlides();
+  timer = _timer;
+}
+
+function showSlides() {
+  let slides = document.querySelectorAll(".mySlides");
+  let dots = document.querySelectorAll(".dots");
+
+  if (slideIndex > slides.length - 1) slideIndex = 0;
+  if (slideIndex < 0) slideIndex = slides.length - 1;
+  
+  // hide all slides
+  slides.forEach((slide) => {
+    slide.style.display = "none";
+  });
+  
+  // show one slide base on index number
+  slides[slideIndex].style.display = "block";
+  
+  dots.forEach((dot) => {
+    dot.classList.remove("active");
+  });
+  
+  dots[slideIndex].classList.add("active");
+}
+
+// autoplay slides --------
+let timer = 7; // sec
+const _timer = timer;
+
+// this function runs every 1 second
+setInterval(() => {
+  timer--;
+
+  if (timer < 1) {
+    nextSlide();
+    timer = _timer; // reset timer
+  }
+}, 1000); // 1sec
+
 
 </script>
 
