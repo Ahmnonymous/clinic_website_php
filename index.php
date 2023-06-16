@@ -1023,6 +1023,14 @@ setInterval(() => {
 
 </script>
 
+<script>
+  // Wait for the DOM to load
+  document.addEventListener("DOMContentLoaded", function() {
+    // Hide the loader
+    document.getElementById("loader").classList.add("hidden");
+  });
+</script>
+
 </body>
 </html>
 
