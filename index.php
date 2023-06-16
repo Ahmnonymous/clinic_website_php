@@ -1024,10 +1024,10 @@ setInterval(() => {
 </script>
 
 <script>
-  // Hide the loader after a delay
-  setTimeout(function() {
-    document.querySelector(".loader").classList.add("hidden");
-  }, 5000); // Adjust the delay time as needed
+  // Hide the loader when the window finishes loading
+  window.addEventListener("load", function() {
+    document.getElementById(".loader").classList.add("hidden");
+  });
 </script>
 
 
