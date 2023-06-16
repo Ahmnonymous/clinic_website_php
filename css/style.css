@@ -147,6 +147,8 @@ section:nth-child(even){
     left: 0;
     background: rgba(234, 236, 250, 0.9);
     z-index: 9999;
+    font-size: 2rem;
+    color: var(--green);
   }
   .loader.hidden {
     display: none;
