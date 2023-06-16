@@ -1024,12 +1024,12 @@ setInterval(() => {
 </script>
 
 <script>
-  // Wait for the DOM to load
-  document.addEventListener("DOMContentLoaded", function() {
-    // Hide the loader
+  // Hide the loader when the window finishes loading
+  window.addEventListener("load", function() {
     document.getElementById("loader").classList.add("hidden");
   });
 </script>
+
 
 </body>
 </html>
