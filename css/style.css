@@ -161,7 +161,7 @@ section:nth-child(even){
     height: 15px;
     background: var(--green);
     position: absolute;
-    animation: load 3s alternate ease-in-out;
+    animation: load 5s infinite alternate ease-in-out;
     transition-property: left;
   }
   
