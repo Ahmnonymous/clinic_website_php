@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\SMTP;
 require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
-require 'main-config.php';
+require 'local-config.php';
 
 // Create a new PHPMailer instance
 $mail = new PHPMailer();
@@ -144,12 +144,10 @@ if (isset($_POST['submit_us'])) {
     <title>Ehsan Clinic</title>
 
     <!-- JQuery link  -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
 
     <!-- custom css file link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
 
@@ -157,7 +155,7 @@ if (isset($_POST['submit_us'])) {
 <body>
 <!-- loader section starts  -->
 
-    <div class="loader">Loading...</div>
+    <!--div class="loader">Loading...</div-->
 
 <!-- loader section starts  -->
 
@@ -199,7 +197,7 @@ if (isset($_POST['submit_us'])) {
     </div>
 
         <div class="mySlides animate">
-            <img src="./image/camp1.webp" alt="slide" />
+            <img rel="preload" src="./image/camp1.webp" alt="slide" />
         </div>
 
         <div class="mySlides animate">
@@ -242,7 +240,7 @@ if (isset($_POST['submit_us'])) {
 
 <section class="why" id="why">
 
-    <h1 class="heading"> why choose <span>us</span>? </h1>
+    <h1 class="heading"> why <span>us</span>? </h1>
 
     <div class="box-container">
 
@@ -289,7 +287,7 @@ if (isset($_POST['submit_us'])) {
     <div class="row">
 
         <div class="image">
-            <img src="image/drehsan.webp" alt="">
+            <img src="image/drehsan.webp" alt="drehsan">
         </div>
 
         <div class="content">
@@ -427,45 +425,44 @@ if (isset($_POST['submit_us'])) {
     <div class="box-container">
 
         <div class="box">
-            <img src="image/doc-0.webp" alt="">
+            <img src="image/doc-0.webp" alt="staff">
             <h3>Clinic Administrator</h3>
-            <span>expert doctor</span>
+            <!--span>expert doctor</span-->
         </div>
 
         <div class="box">
-            <img src="image/doc-1.webp" alt="">
+            <img src="image/doc-1.webp" alt="staff">
             <h3>Head Staff</h3>
-            <span>expert doctor</span>
         </div>
 
         <div class="box">
-            <img src="image/doc-2.webp" alt="">
+            <img src="image/doc-2.webp" alt="staff">
             <h3>Senior Staff</h3>
-            <span>expert doctor</span>
+            
         </div>
 
         <div class="box">
-            <img src="image/doc-3.webp" alt="">
+            <img src="image/doc-3.webp" alt="staff">
             <h3>Senior Staff</h3>
-            <span>expert doctor</span>
+            
         </div>
 
         <div class="box">
-            <img src="image/doc-4.webp" alt="">
+            <img src="image/doc-4.webp" alt="staff">
             <h3>Staff</h3>
-            <span>expert doctor</span>
+            
         </div>
 
         <div class="box">
-            <img src="image/doc-5.webp" alt="">
+            <img src="image/doc-5.webp" alt="staff">
             <h3>Staff</h3>
-            <span>expert doctor</span>
+            
         </div>
 
         <div class="box">
-            <img src="image/doc-6.webp" alt="">
+            <img src="image/doc-6.webp" alt="staff">
             <h3>Staff</h3>
-            <span>expert doctor</span>
+            
         </div>
 
     </div>
@@ -484,7 +481,7 @@ if (isset($_POST['submit_us'])) {
     <div class="row">
 
         <div class="image">
-            <img src="image/appointment-img.svg" alt="">
+            <img src="image/appointment.svg" alt="appointment">
         </div>
 
         <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validateForm()">        
@@ -528,7 +525,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r1.png" alt="">
+                            <img src="image/r1.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -552,7 +549,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r2.png" alt="">
+                            <img src="image/r2.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -576,7 +573,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r3.png" alt="">
+                            <img src="image/r3.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -599,7 +596,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r4.png" alt="">
+                            <img src="image/r4.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -623,7 +620,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r5.png" alt="">
+                            <img src="image/r5.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -645,7 +642,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r6.png" alt="">
+                            <img src="image/r6.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -669,7 +666,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r7.png" alt="">
+                            <img src="image/r7.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -692,7 +689,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r8.png" alt="">
+                            <img src="image/r8.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -714,7 +711,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r9.png" alt="">
+                            <img src="image/r9.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -737,7 +734,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r10.png" alt="">
+                            <img src="image/r10.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -759,7 +756,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r11.png" alt="">
+                            <img src="image/r11.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -781,7 +778,7 @@ if (isset($_POST['submit_us'])) {
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                            <img src="image/r12.png" alt="">
+                            <img src="image/r12.webp" alt="review">
                             </div>
                         </div>
                         <div class="card-content">
@@ -887,9 +884,6 @@ if (isset($_POST['submit_us'])) {
 <!-- footer section ends -->
 
 <!-- js file link  -->
-<script src="js/script.js"></script>
-<script src="js/home-slider.js"></script>
-<script src="js/validate-form.js"></script>
 <script src="js/swiper-bundle.min.js"></script>
 
 <script>
@@ -1028,6 +1022,51 @@ setInterval(() => {
   setTimeout(function() {
     document.querySelector(".loader").classList.add("hidden");
   }, 5000); // Adjust the delay time as needed
+</script>
+
+<script>
+    let menu = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () =>{
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+}
+
+window.onscroll = () =>{
+    menu.classList.remove('fa-times');
+    navbar.classList.remove('active');
+}
+</script>
+
+<script>
+  // Preload multiple images
+  var images = [
+    "./image/camp1.webp",
+    "./image/camp2.webp",
+    "./image/camp3.webp"
+    "./image/camp4.webp",
+    "./image/camp5.webp",
+    "./image/camp6.webp"
+    "./image/r1.webp"
+    "./image/r2.webp"
+    "./image/r3.webp"
+    "./image/r4.webp"
+    "./image/r5.webp"
+    "./image/r6.webp"
+    "./image/r7.webp"
+    "./image/r8.webp"
+    "./image/r9.webp"
+    "./image/r10.webp"
+    "./image/r11.webp"
+    "./image/r12.webp"
+    
+  ];
+
+  images.forEach(function(imageUrl) {
+    var image = new Image();
+    image.src = imageUrl;
+  });
 </script>
 
 
