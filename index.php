@@ -1041,7 +1041,7 @@ window.onscroll = () =>{
 
 <script>
   // Preload multiple images
-  var images = [
+  /*var images = [
     "./image/camp1.webp",
     "./image/camp2.webp",
     "./image/camp3.webp"
@@ -1067,7 +1067,7 @@ window.onscroll = () =>{
     var image = new Image();
     image.src = imageUrl;
   });
-</script>
+*/</script>
 
 
 </body>
