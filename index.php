@@ -197,7 +197,7 @@ if (isset($_POST['submit_us'])) {
     </div>
 
         <div class="mySlides animate">
-            <img rel="preload" src="./image/camp1.webp" alt="slide" />
+            <img src="./image/camp1.webp" alt="slide" />
         </div>
 
         <div class="mySlides animate">
@@ -495,11 +495,11 @@ if (isset($_POST['submit_us'])) {
             ?>
                 <h3>Make an appointment</h3>
                 <p> MORNING (10:00 AM - 02:00 PM) <br> EVENING (05:30 PM - 10:00 PM)</p>
-                <input type="text" name="name" placeholder="Your name" class="box" required>
-                <input type="phone" name="number" placeholder="Your number" class="box" required>
-                <input type="email" name="email" placeholder="Your email" class="box">
-                <input type="date" name="date" id="date" class="box" required>
-                <input type="time" name="time" id="time" class="box" required>
+                <input type="text" name="name" placeholder="Name" class="box" required>
+                <input type="phone" name="number" placeholder="Phone Number" class="box" required>
+                <input type="email" name="email" placeholder="Email Address" class="box">
+                <input type="date" name="date" id="date" placeholder="Enter Date" class="box" required>
+                <input type="time" name="time" id="time" placeholder="Enter Time" class="box" required>
                 <input type="submit" name="submit" value="Make an appointment now" class="btn">
                 <span class="error-message" id="error-message"></span>
             </div>
