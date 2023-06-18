@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\SMTP;
 require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
-require 'main-config.php';
+require 'local-config.php';
 
 // Create a new PHPMailer instance
 $mail = new PHPMailer();
@@ -220,6 +220,10 @@ if (isset($_POST['submit_us'])) {
             <img src="./image/camp6.webp" alt="slide" />
         </div>
 
+        <div class="mySlides animate">
+            <img src="./image/camp7.webp" alt="slide" />
+        </div>
+
         <!-- The dots/circles-->
         <div class="dots-container">
             <span class="dots" onclick="currentSlide(1)"></span>
@@ -228,6 +232,7 @@ if (isset($_POST['submit_us'])) {
             <span class="dots" onclick="currentSlide(4)"></span>
             <span class="dots" onclick="currentSlide(5)"></span>
             <span class="dots" onclick="currentSlide(6)"></span>
+            <span class="dots" onclick="currentSlide(7)"></span>
         </div>
     
     </div>
@@ -1041,13 +1046,14 @@ window.onscroll = () =>{
 
 <script>
   // Preload multiple images
-  /*var images = [
+  var images = [
     "./image/camp1.webp",
     "./image/camp2.webp",
     "./image/camp3.webp"
     "./image/camp4.webp",
     "./image/camp5.webp",
     "./image/camp6.webp"
+    "./image/camp7.webp"
     "./image/r1.webp"
     "./image/r2.webp"
     "./image/r3.webp"
@@ -1067,7 +1073,7 @@ window.onscroll = () =>{
     var image = new Image();
     image.src = imageUrl;
   });
-*/</script>
+</script>
 
 
 </body>

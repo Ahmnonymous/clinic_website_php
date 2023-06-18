@@ -209,131 +209,93 @@ section:nth-child(even){
     display: none;
 }
 
-.home{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap:1.5rem;
-    padding-top: 10rem;
-}
-
-.home .image{
-    flex:1 1 45rem;
-}
-
-.home .image img{
-    width: 100%;
-}
-
-.home .content{
-    flex:1 1 45rem;
-}
-
-.home .content h3{
-    font-size: 4rem;
-    color:var(--black);
-    line-height: 1.8;
-    text-shadow: var(--text-shadow);
-}
-
-.home .content p{
-    font-size: 1.7rem;
-    color:var(--light-color);
-    line-height: 1.8;
-    padding: 1rem 0;
-    text-align: justify;
-}
-
-/* home ends */
-
-/* home starts */
 #home{
     padding: 5rem 0;
     background-color: white;
 }
 
 .carousel-container {
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 0 30px -20px #223344;
-    margin: auto;
-    z-index: 0;
-  }
-  
-  .mySlides {
-    display: none;
-    position: relative;
-  }
-  .mySlides img {
-    display: block;
-    width: 100%;
-  }
-  .mySlides::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
-  }
-  
-  .text {
-    color: #f2f2f2;
-    font-size: 1.5rem;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    text-align: center;
-    padding: 10px;
-  }
+overflow: hidden;
+position: relative;
+box-shadow: 0 0 30px -20px #223344;
+margin: auto;
+z-index: 0;
+}
 
-  .text h1{
-    text-align: center;
-    font-size: 3rem;
-  }
+.mySlides {
+display: none;
+position: relative;
+}
+.mySlides img {
+display: block;
+width: 100%;
+}
+.mySlides::before {
+content: "";
+position: absolute;
+inset: 0;
+background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+}
 
-  .dots-container {
-    display: flow-root;
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%);
-    
-  }
-  
-  /* The dots/bullets/indicators */
-  .dots {
-    cursor: pointer;
-    height: 14px;
-    width: 14px;
-    margin: 0 4px;
-    background-color: rgba(173, 216, 230, 0.2);
-    backdrop-filter: blur(2px);
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-  }
-  .active,
-  .dots:hover {
-    background-color: rgba(173, 216, 230, 0.8);
-  }
-  
-  .animate {
-    -webkit-animation-name: animate;
-    -webkit-animation-duration: 1s;
-    animation-name: animate;
-    animation-duration: 2s;
-  }
-  
-  @keyframes animate {
-    from {
-      transform: scale(1.1) rotateY(10deg);
-    }
-    to {
-      transform: scale(1) rotateY(0deg);
-    }
-  }
-  
+.text {
+color: #f2f2f2;
+font-size: 1.5rem;
+position: absolute;
+top: 30%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 1;
+text-align: center;
+padding: 10px;
+}
+
+.text h1{
+text-align: center;
+font-size: 3rem;
+}
+
+.dots-container {
+display: flow-root;
+position: absolute;
+bottom: 5%;
+left: 50%;
+transform: translate(-50%);
+
+}
+
+/* The dots/bullets/indicators */
+.dots {
+cursor: pointer;
+height: 14px;
+width: 14px;
+margin: 0 4px;
+background-color: rgba(173, 216, 230, 0.2);
+backdrop-filter: blur(2px);
+border-radius: 50%;
+display: inline-block;
+transition: background-color 0.3s ease;
+}
+.active,
+.dots:hover {
+background-color: rgba(173, 216, 230, 0.8);
+}
+
+.animate {
+-webkit-animation-name: animate;
+-webkit-animation-duration: 1s;
+animation-name: animate;
+animation-duration: 2s;
+}
+
+@keyframes animate {
+from {
+    transform: scale(1.1) rotateY(10deg);
+}
+to {
+    transform: scale(1) rotateY(0deg);
+}
+}
+
 
 /* home ends */
 
