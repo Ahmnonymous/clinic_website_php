@@ -430,42 +430,42 @@ if (isset($_POST['submit_us'])) {
     <div class="box-container">
 
         <div class="box">
-            <img src="image/doc-0.webp" alt="staff">
+            <img src="image/doc0.webp" alt="staff">
             <h3>Clinic Administrator</h3>
             <!--span>expert doctor</span-->
         </div>
 
         <div class="box">
-            <img src="image/doc-1.webp" alt="staff">
+            <img src="image/doc1.webp" alt="staff">
             <h3>Head Staff</h3>
         </div>
 
         <div class="box">
-            <img src="image/doc-2.webp" alt="staff">
+            <img src="image/doc2.webp" alt="staff">
             <h3>Senior Staff</h3>
             
         </div>
 
         <div class="box">
-            <img src="image/doc-3.webp" alt="staff">
+            <img src="image/doc3.webp" alt="staff">
             <h3>Senior Staff</h3>
             
         </div>
 
         <div class="box">
-            <img src="image/doc-4.webp" alt="staff">
+            <img src="image/doc4.webp" alt="staff">
             <h3>Staff</h3>
             
         </div>
 
         <div class="box">
-            <img src="image/doc-5.webp" alt="staff">
+            <img src="image/doc5.webp" alt="staff">
             <h3>Staff</h3>
             
         </div>
 
         <div class="box">
-            <img src="image/doc-6.webp" alt="staff">
+            <img src="image/doc6.webp" alt="staff">
             <h3>Staff</h3>
             
         </div>
@@ -1047,6 +1047,7 @@ window.onscroll = () =>{
 <script>
   // Preload multiple images
   var images = [
+    "./image/drehsan.webp"
     "./image/camp1.webp",
     "./image/camp2.webp",
     "./image/camp3.webp"
@@ -1054,6 +1055,13 @@ window.onscroll = () =>{
     "./image/camp5.webp",
     "./image/camp6.webp"
     "./image/camp7.webp"
+    "./image/doc0.webp"
+    "./image/doc1.webp"
+    "./image/doc2.webp"
+    "./image/doc3.webp"
+    "./image/doc4.webp"
+    "./image/doc5.webp"
+    "./image/doc6.webp"
     "./image/r1.webp"
     "./image/r2.webp"
     "./image/r3.webp"
@@ -1066,7 +1074,6 @@ window.onscroll = () =>{
     "./image/r10.webp"
     "./image/r11.webp"
     "./image/r12.webp"
-    
   ];
 
   images.forEach(function(imageUrl) {
