@@ -139,12 +139,13 @@ if (isset($_POST['submit_us'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--link rel="icon" href="./img/logo.png" type="image/png"-->
-
+    
+    <link rel="icon" href="./image/heart.png" type="image/png">
     <title>Ehsan Clinic</title>
 
     <!-- JQuery link  -->
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -154,16 +155,13 @@ if (isset($_POST['submit_us'])) {
 </head>
 <body>
 <!-- loader section starts  -->
-
     <!--div class="loader">Loading...</div-->
-
 <!-- loader section starts  -->
-
 <!-- header section starts  -->
 
 <header class="header">
 
-    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> <strong>ehsan</strong>clinic </a>
+    <a href="#" class="logo"> <i href="./image/heart.png" class="fas fa-heartbeat"></i> <strong>ehsan</strong>clinic </a>
 
     <nav class="navbar">
         <a href="#home">home</a>
@@ -888,9 +886,6 @@ if (isset($_POST['submit_us'])) {
 
 <!-- footer section ends -->
 
-<!-- js file link  -->
-<script src="js/swiper-bundle.min.js"></script>
-
 <script>
     var swiper = new Swiper(".slide-content", {
     slidesPerView: 1,
@@ -1047,7 +1042,6 @@ window.onscroll = () =>{
 <script>
   // Preload multiple images
   var images = [
-    "./image/drehsan.webp"
     "./image/camp1.webp",
     "./image/camp2.webp",
     "./image/camp3.webp"
@@ -1055,6 +1049,7 @@ window.onscroll = () =>{
     "./image/camp5.webp",
     "./image/camp6.webp"
     "./image/camp7.webp"
+    "./image/drehsan.webp"
     "./image/doc0.webp"
     "./image/doc1.webp"
     "./image/doc2.webp"

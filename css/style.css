@@ -114,7 +114,7 @@ section:nth-child(even){
 }
 
 .header .logo i{
-    color: #c0392b;
+    color: red;
     text-transform: lowercase;
 }
 
