@@ -510,29 +510,6 @@ if (isset($_POST['submit_us'])) {
         </form>
 
     </div>
-<script>
-// Add placeholder functionality to date input field
-var dateInput = document.getElementById("date");
-dateInput.addEventListener("focus", function() {
-  dateInput.setAttribute("type", "text");
-});
-dateInput.addEventListener("blur", function() {
-  if (dateInput.value === "") {
-    dateInput.setAttribute("type", "date");
-  }
-});
-
-// Add placeholder functionality to time input field
-var timeInput = document.getElementById("time");
-timeInput.addEventListener("focus", function() {
-  timeInput.setAttribute("type", "text");
-});
-timeInput.addEventListener("blur", function() {
-  if (timeInput.value === "") {
-    timeInput.setAttribute("type", "time");
-  }
-});
-</script>
 </section>
 
 <!-- appointmenting section ends -->
