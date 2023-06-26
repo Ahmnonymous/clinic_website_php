@@ -110,7 +110,7 @@ if (isset($_POST['submit_us'])) {
             // Send email to the client
             $mail->setFrom('support@ehsanclinic.com', 'Ehsan Clinic'); // Replace with your name and email address
             $mail->addAddress($email_us, $name_us); // Add the client as the recipient
-            $mail->Subject = 'Message For EhsanClinic.com';
+            $mail->Subject = 'Message From EhsanClinic.com';
             $mail->Body = 'Dear ' . $name_us . ',' . "\n\n";
             $mail->Body .= 'Your Response was succesfully submitted!' . "\n";
             $mail->Body .= 'Thank you for contacting with Ehsan Clinic. We will be contacting you in a while.' . "\n\n";
@@ -126,7 +126,7 @@ if (isset($_POST['submit_us'])) {
         $mail->addAddress($defaultEmail, 'Dr. Hamza Ehsan'); // Add the default recipient
         $additionalEmail = 'hamzaehsan@live.com'; // Replace with the additional recipient email
         $mail->addAddress($additionalEmail, 'Dr. Hamza Ehsan'); // Add the additional recipient
-        $mail->Subject = 'EhsanClinic - Message Submitted';
+        $mail->Subject = 'EhsanClinic Message Submitted';
         $mail->Body = 'New Message details:' . "\n";
         $mail->Body .= 'Name: ' . $name_us . "\n";
         $mail->Body .= 'Email: ' . $email_us . "\n";
