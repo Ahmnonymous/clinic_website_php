@@ -131,7 +131,6 @@ if (isset($_POST['submit_us'])) {
         $mail->Body .= 'Name: ' . $name_us . "\n";
         $mail->Body .= 'Email: ' . $email_us . "\n";
         $mail->Body .= 'Number: ' . $number_us . "\n";
-        $mail->Body .= 'Time: ' . $Time_us . "\n";
         $mail->Body .= 'Date: ' . $formattedDate . "\n\n";
         $mail->Body .= 'Message: ' . $subject_us . "\n";
         
