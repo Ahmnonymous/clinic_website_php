@@ -96,7 +96,7 @@ if (isset($_POST['submit_us'])) {
     $number_us = $_POST['number_us'];
     $subject_us = $_POST['subject_us'];
     $Date_us = date('Y-m-d');
-    $Time_us = date('H:i:s');
+    $Time_us = date('h:i A');
     $status_us = "Message";
 
     $insertQuery_us = "INSERT INTO `contact` (name, email, subject,number,date,time,status) VALUES ('$name_us', '$email_us', '$subject_us','$number_us','$Date_us','$Time_us','$status_us')";
