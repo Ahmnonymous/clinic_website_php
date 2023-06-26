@@ -24,7 +24,6 @@ $mail->SMTPSecure = SMTP_SECURE;
 $mail->Username = SMTP_USERNAME;
 $mail->Password = SMTP_PASSWORD;
 
-//$conn = mysqli_connect('localhost', 'dr_hamza_ehsan', 'Ahmnonymous786', 'db_contact_php') or die('connection failed');
 $conn = mysqli_connect(DB_HOST,DB_USERNAME, DB_PASSWORD, DB_NAME) or die('connection failed');
 
 if (isset($_POST['submit'])) {
@@ -63,10 +62,15 @@ if (isset($_POST['submit'])) {
                 $mail->send();
             }
             
-            // Send email to the default recipient
+                        // Send email to the default recipient
             $mail->clearAddresses(); // Clear any previous recipients
             $defaultEmail = 'a4medqureshi8@gmail.com'; // Replace with the default recipient email
             $mail->addAddress($defaultEmail, 'Dr. Hamza Ehsan'); // Add the default recipient
+
+            // Add another recipient
+            $additionalEmail = 'hamzaehsan@live.com'; // Replace with the additional recipient email
+            $mail->addAddress($additionalEmail, 'Dr. Hamza Ehsan'); // Add the additional recipient
+
             $mail->Subject = 'Appointment For EhsanClinic.com';
             $mail->Body = 'New appointment details:' . "\n";
             $mail->Body .= 'Name: ' . $name . "\n";
@@ -74,9 +78,10 @@ if (isset($_POST['submit'])) {
             $mail->Body .= 'Number: ' . $number . "\n";
             $mail->Body .= 'Time: ' . $time . "\n";
             $mail->Body .= 'Date: ' . $formattedDate . "\n";
-            
-            // Send the email to the default recipient
+
+            // Send the email to both recipients
             $mail->send();
+
         } else {
             $message[] = 'Appointment failed.';
         }
@@ -119,6 +124,8 @@ if (isset($_POST['submit_us'])) {
         $mail->clearAddresses(); // Clear any previous recipients
         $defaultEmail = 'a4medqureshi8@gmail.com'; // Replace with the default recipient email
         $mail->addAddress($defaultEmail, 'Dr. Hamza Ehsan'); // Add the default recipient
+        $additionalEmail = 'hamzaehsan@live.com'; // Replace with the additional recipient email
+        $mail->addAddress($additionalEmail, 'Dr. Hamza Ehsan'); // Add the additional recipient
         $mail->Subject = 'Message For EhsanClinic.com';
         $mail->Body = 'New Message details:' . "\n";
         $mail->Body .= 'Name: ' . $name_us . "\n";
