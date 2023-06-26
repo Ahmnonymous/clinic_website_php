@@ -126,7 +126,7 @@ if (isset($_POST['submit_us'])) {
         $mail->addAddress($defaultEmail, 'Dr. Hamza Ehsan'); // Add the default recipient
         $additionalEmail = 'hamzaehsan@live.com'; // Replace with the additional recipient email
         $mail->addAddress($additionalEmail, 'Dr. Hamza Ehsan'); // Add the additional recipient
-        $mail->Subject = 'Message For EhsanClinic.com';
+        $mail->Subject = 'EhsanClinic - Message Submitted';
         $mail->Body = 'New Message details:' . "\n";
         $mail->Body .= 'Name: ' . $name_us . "\n";
         $mail->Body .= 'Email: ' . $email_us . "\n";
