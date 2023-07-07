@@ -538,6 +538,29 @@ if (isset($_POST['submit_us'])) {
                             </div>
                         </div>
                         <div class="card-content">
+                            <h2 class="name">Shabbir Hussain</h2>
+                            <p class="description">
+                            Dr Ehsan is a high qualified, humble, patients caring, professional Doctor.  
+                            Always smiling face and listening patience, proper guidance to his patients.
+                            </p>
+                            <button class="button">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                            <img src="image/r9.webp" alt="review">
+                            </div>
+                        </div>
+                        <div class="card-content">
                             <h2 class="name">Haris Awan</h2>
                             <p class="description">
                             Dr. Hamza did a great job with my first ever health exam. 
