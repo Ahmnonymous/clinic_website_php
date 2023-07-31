@@ -674,7 +674,7 @@ to {
     z-index:1;
 }
 
-.contact form > div.recaptcha-container {
+.contact form .recaptcha-container {
     display: inline-block;
 }
 
