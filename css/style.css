@@ -674,6 +674,10 @@ to {
     z-index:1;
 }
 
+.contact form > div.recaptcha-container {
+    display: inline-block;
+}
+
 .contact form > div{
 position:absolute;
 top:0;
@@ -871,6 +875,3 @@ color: white;
 
 /* media queries ends */
 
-.recaptcha-container {
-    display: inline-block;
-}
