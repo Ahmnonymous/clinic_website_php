@@ -676,8 +676,7 @@ to {
 
 .contact form .recaptcha-container {
     display: inline-block;
-    padding: 12px;
-    margin: 12px auto;
+    padding-left: inherit;
 }
 
 /*
