@@ -871,4 +871,7 @@ color: white;
 
 /* media queries ends */
 
+.contact form > div{
+    display: contents;
 
+}
