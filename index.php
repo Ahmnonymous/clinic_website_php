@@ -135,7 +135,7 @@ if (isset($_POST['submit_us'])) {
     $captcha_success = json_decode($verify);
 
     if (!$captcha_success->success) {
-        $message[] = 'reCAPTCHA verification failed.';
+        $message_us[] = 'reCAPTCHA verification failed.';
     } else {
     $name_us = mysqli_real_escape_string($conn, $_POST['name_us']);
     $email_us = mysqli_real_escape_string($conn, $_POST['email_us']);
