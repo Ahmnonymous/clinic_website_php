@@ -688,12 +688,12 @@ background-color:var(--green);
 border-radius: 20px;
 text-align:center;
 }
-*/
+
 .contact form > div > img{
 filter:invert(1);
 width:60px;
 }
-
+*/
 .contact form .message {
     margin-bottom: 2rem;
     border-radius: 0.5rem;
