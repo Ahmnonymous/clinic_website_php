@@ -27,6 +27,29 @@ $mail->Password = SMTP_PASSWORD;
 $conn = mysqli_connect(DB_HOST,DB_USERNAME, DB_PASSWORD, DB_NAME) or die('connection failed');
 
 if (isset($_POST['submit'])) {
+    $recaptcha_response = $_POST['g-recaptcha-response'];
+    $recaptcha_secret = "6LdIXGwnAAAAAOMiNA_AaIyo_g6elR7MgKgf0cgz";
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $data = array(
+        'secret' => $recaptcha_secret,
+        'response' => $recaptcha_response
+    );
+
+    $options = array(
+        'http' => array(
+            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
+            'content' => http_build_query($data),
+        ),
+    );
+
+    $context = stream_context_create($options);
+    $verify = file_get_contents($url, false, $context);
+    $captcha_success = json_decode($verify);
+
+    if (!$captcha_success->success) {
+        $message[] = 'reCAPTCHA verification failed.';
+    } else {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $subject = "Appointment for EhsanClinic";
@@ -88,6 +111,7 @@ if (isset($_POST['submit'])) {
     }
 }
 
+}
 
 if (isset($_POST['submit_us'])) {
             
@@ -153,6 +177,7 @@ if (isset($_POST['submit_us'])) {
     <!-- JQuery link  -->
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -494,8 +519,8 @@ if (isset($_POST['submit_us'])) {
             <img src="image/appointment.svg" alt="appointment">
         </div>
 
-        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validateForm()">        
-            <div class="form-container">
+        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validateForm()">
+        <div class="form-container">
             <?php
             if (isset($message)) {
                 foreach ($message as $msg) {
@@ -503,17 +528,19 @@ if (isset($_POST['submit_us'])) {
                 }
             }
             ?>
-                <h3>Make an appointment</h3>
-                <p> MORNING (10:00 AM - 02:00 PM) <br> EVENING (05:30 PM - 10:00 PM)</p>
-                <input type="text" name="name" placeholder="Name" class="box" required>
-                <input type="phone" name="number" placeholder="Phone Number" class="box" required>
-                <input type="email" name="email" placeholder="Email Address" class="box">
-                <input type="date" name="date" id="date" placeholder="Enter Date" class="box" required>
-                <input type="time" name="time" id="time" placeholder="Enter Time" class="box" required>
-                <input type="submit" name="submit" value="Make an appointment now" class="btn">
-                <span class="error-message" id="error-message"></span>
-            </div>
-        </form>
+            <h3>Make an appointment</h3>
+            <p> MORNING (10:00 AM - 02:00 PM) <br> EVENING (05:30 PM - 10:00 PM)</p>
+            <input type="text" name="name" placeholder="Name" class="box" required>
+            <input type="phone" name="number" placeholder="Phone Number" class="box" required>
+            <input type="email" name="email" placeholder="Email Address" class="box">
+            <input type="date" name="date" id="date" placeholder="Enter Date" class="box" required>
+            <input type="time" name="time" id="time" placeholder="Enter Time" class="box" required>
+            <!-- Add the reCAPTCHA widget -->
+            <div class="g-recaptcha" data-sitekey="6LdIXGwnAAAAAAFieMAzb7ljMxjL41R-nWPcLazy"></div>
+            <input type="submit" name="submit" value="Make an appointment now" class="btn">
+            <span class="error-message" id="error-message"></span>
+        </div>
+    </form>
 
     </div>
 </section>
