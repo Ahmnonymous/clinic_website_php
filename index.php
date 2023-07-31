@@ -900,15 +900,13 @@ if (isset($_POST['submit_us'])) {
                 }
             }
         ?>
-        <div><img src="./image/mail-icon.png" alt="icon"></div>
+        <!--div><img src="./image/mail-icon.png" alt="icon"></div-->
         <input type="text" name="name_us" placeholder="Name" required>
         <input type="email" name="email_us" placeholder="Email address" required>
         <input type="phone" name="number_us" placeholder="Phone Number" required>
         <textarea name="subject_us" placeholder="Subject" required></textarea>
         <!-- Add the reCAPTCHA widget -->
-        <div class="recaptcha-container">
-            <div class="g-recaptcha" data-sitekey="6LdIXGwnAAAAAAFieMAzb7ljMxjL41R-nWPcLazy"></div>
-        </div>
+        <div class="g-recaptcha" data-sitekey="6LdIXGwnAAAAAAFieMAzb7ljMxjL41R-nWPcLazy"></div>
         <input type="submit" name="submit_us" value="Send Message">
     </form>
 </section>
