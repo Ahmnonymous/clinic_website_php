@@ -871,7 +871,6 @@ color: white;
 
 /* media queries ends */
 
-.contact form > div{
-    display: contents;
-
+.recaptcha-container {
+    display: inline-block;
 }

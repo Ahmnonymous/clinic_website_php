@@ -906,7 +906,9 @@ if (isset($_POST['submit_us'])) {
         <input type="phone" name="number_us" placeholder="Phone Number" required>
         <textarea name="subject_us" placeholder="Subject" required></textarea>
         <!-- Add the reCAPTCHA widget -->
-        <div class="g-recaptcha" data-sitekey="6LdIXGwnAAAAAAFieMAzb7ljMxjL41R-nWPcLazy"></div>
+        <div class="recaptcha-container">
+            <div class="g-recaptcha" data-sitekey="6LdIXGwnAAAAAAFieMAzb7ljMxjL41R-nWPcLazy"></div>
+        </div>
         <input type="submit" name="submit_us" value="Send Message">
     </form>
 </section>
