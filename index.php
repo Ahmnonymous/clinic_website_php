@@ -114,7 +114,29 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_POST['submit_us'])) {
-            
+    $recaptcha_response = $_POST['g-recaptcha-response'];
+    $recaptcha_secret = "6LdIXGwnAAAAAOMiNA_AaIyo_g6elR7MgKgf0cgz";
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $data = array(
+        'secret' => $recaptcha_secret,
+        'response' => $recaptcha_response
+    );
+
+    $options = array(
+        'http' => array(
+            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
+            'content' => http_build_query($data),
+        ),
+    );
+
+    $context = stream_context_create($options);
+    $verify = file_get_contents($url, false, $context);
+    $captcha_success = json_decode($verify);
+
+    if (!$captcha_success->success) {
+        $message[] = 'reCAPTCHA verification failed.';
+    } else {
     $name_us = mysqli_real_escape_string($conn, $_POST['name_us']);
     $email_us = mysqli_real_escape_string($conn, $_POST['email_us']);
     $number_us = $_POST['number_us'];
@@ -160,6 +182,7 @@ if (isset($_POST['submit_us'])) {
         
         // Send the email to the default recipient
         $mail->send();}
+    }
 
 ?>
 
@@ -882,6 +905,8 @@ if (isset($_POST['submit_us'])) {
         <input type="email" name="email_us" placeholder="Email address" required>
         <input type="phone" name="number_us" placeholder="Phone Number" required>
         <textarea name="subject_us" placeholder="Subject" required></textarea>
+        <!-- Add the reCAPTCHA widget -->
+        <div class="g-recaptcha" data-sitekey="6LdIXGwnAAAAAAFieMAzb7ljMxjL41R-nWPcLazy"></div>
         <input type="submit" name="submit_us" value="Send Message">
     </form>
 </section>
