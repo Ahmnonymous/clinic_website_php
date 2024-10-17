@@ -488,10 +488,10 @@ if (isset($_POST['submit_us'])) {
             <!--span>expert doctor</span-->
         </div>
 
-        <div class="box">
+        <!-- <div class="box">
             <img src="image/doc1.webp" alt="staff">
             <h3>Head Staff</h3>
-        </div>
+        </div> -->
 
         <div class="box">
             <img src="image/doc2.webp" alt="staff">
